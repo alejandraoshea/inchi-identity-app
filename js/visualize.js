@@ -216,7 +216,7 @@ function fetchSDF(inchi) {
     if (sdfCache[inchi]) return Promise.resolve(sdfCache[inchi]);
     if (fetching[inchi]) return fetching[inchi];
 
-    var p = fetch("http://127.0.0.1:5000/api/generate_3d", {
+    var p = fetch(API + "/generate_3d", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ inchi: inchi })
