@@ -10,8 +10,6 @@ var layerLabels = {
     tautomer:          "Tautomer Independence",
 };
 
-/* ── Compare ──────────────────────────────────────────────────────────────── */
-
 function compare(isAdvanced) {
     isAdvanced = !!isAdvanced;
     var inchi1 = val(isAdvanced ? "inchi1_adv" : "inchi1");
@@ -162,7 +160,6 @@ function initTextareas() {
 }
 
 function markActiveNav() {
-    // Files pages need body scroll; compare/advanced fit in the viewport
     var FILES_PAGES = ["files.html", "files-pairwise.html", "files-cross.html"];
     var page = location.pathname.split("/").pop();
     document.body.classList.toggle("allow-scroll", FILES_PAGES.indexOf(page) !== -1);
