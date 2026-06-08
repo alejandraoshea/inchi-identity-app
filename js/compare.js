@@ -8,7 +8,10 @@ var layerLabels = {
     salt:              "Salt Independence",
     charge:            "Charge Independence",
     double_bond:       "Double Bond Independence",
-    stereo_cis_trans:  "Cis/Trans Independence",
+    cis_trans:         "Cis/Trans Independence",
+    sn_position:       "sn-Position Independence",
+    chain_position:    "Chain Position Independence",
+    sum_composition:   "Sum Composition Independence",
     tautomer:          "Tautomer Independence",
 };
 
@@ -110,12 +113,15 @@ function clearAdvancedSelection() {
 function mapResults(raw) {
     raw = raw || {};
     return {
-        complete_identity: raw.COMPLETE_IDENTITY                     != null ? raw.COMPLETE_IDENTITY                     : null,
-        isotope:           raw.ISOTOPIC_INDEPENDENCE                 != null ? raw.ISOTOPIC_INDEPENDENCE                 : null,
-        salt:              raw.SALTS_INDEPENDENCE                    != null ? raw.SALTS_INDEPENDENCE                    : null,
-        charge:            raw.CHARGES_INDEPENDENCE                  != null ? raw.CHARGES_INDEPENDENCE                  : null,
-        stereo_cis_trans:  raw.STEREOCHEMICAL_CIS_TRANS_INDEPENDENCE != null ? raw.STEREOCHEMICAL_CIS_TRANS_INDEPENDENCE : null,
-        double_bond:       raw.DOUBLE_BONDS_INDEPENDENCE             != null ? raw.DOUBLE_BONDS_INDEPENDENCE             : null,
-        tautomer:          raw.TAUTOMER_INDEPENDENCE                 != null ? raw.TAUTOMER_INDEPENDENCE                 : null,
+        complete_identity: raw.COMPLETE_IDENTITY         != null ? raw.COMPLETE_IDENTITY         : null,
+        isotope:           raw.ISOTOPIC_INDEPENDENCE     != null ? raw.ISOTOPIC_INDEPENDENCE     : null,
+        salt:              raw.SALTS_INDEPENDENCE        != null ? raw.SALTS_INDEPENDENCE        : null,
+        charge:            raw.CHARGES_INDEPENDENCE      != null ? raw.CHARGES_INDEPENDENCE      : null,
+        double_bond:       raw.DOUBLE_BONDS_INDEPENDENCE    != null ? raw.DOUBLE_BONDS_INDEPENDENCE    : null,
+        cis_trans:         raw.CIS_TRANS_INDEPENDENCE       != null ? raw.CIS_TRANS_INDEPENDENCE       : null,
+        sn_position:       raw.SN_POSITION_INDEPENDENCE     != null ? raw.SN_POSITION_INDEPENDENCE     : null,
+        chain_position:    raw.CHAIN_POSITION_INDEPENDENCE  != null ? raw.CHAIN_POSITION_INDEPENDENCE  : null,
+        sum_composition:   raw.SUM_COMPOSITION_INDEPENDENCE != null ? raw.SUM_COMPOSITION_INDEPENDENCE : null,
+        tautomer:          raw.TAUTOMER_INDEPENDENCE     != null ? raw.TAUTOMER_INDEPENDENCE     : null,
     };
 }

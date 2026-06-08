@@ -296,7 +296,7 @@ button.secondary:hover {
 .center {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     height: 100%;
     min-height: 0;
     overflow: hidden;
@@ -367,7 +367,7 @@ button.secondary:hover {
 #layers-advanced {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     overflow-y: auto;
 }
 
@@ -382,19 +382,34 @@ button.secondary:hover {
     margin-bottom: 2px;
 }
 
+.layers-subsection-title {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--muted);
+    padding: 6px 0 2px 14px;
+    margin-top: 2px;
+}
+
+.layer-sublevel {
+    margin-left: 10px;
+    font-size: 11px;
+}
+
 .layer {
     background: #f8fafc;
-    padding: 10px 14px;
+    padding: 9px 12px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 0.15s;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     text-align: left;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: nowrap;
     min-width: 0;
 }
@@ -428,7 +443,7 @@ button.secondary:hover {
     min-width: 0;
     white-space: normal;
     word-break: break-word;
-    line-height: 1.3;
+    line-height: 1.2;
     overflow: visible;
     text-overflow: unset;
 }
