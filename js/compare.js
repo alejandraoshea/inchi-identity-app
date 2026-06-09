@@ -93,9 +93,10 @@ function updateLayers(results, isAdvanced) {
         var result = results[key];
         var badge  = layer.querySelector(".badge");
         if (!badge) { badge = document.createElement("span"); badge.className = "badge"; layer.appendChild(badge); }
-        if      (result === true)  { layer.className = "layer match";   badge.className = "badge green"; badge.textContent = "EQUAL"; }
-        else if (result === false) { layer.className = "layer nomatch"; badge.className = "badge red";   badge.textContent = "DIFF";  }
-        else                       { layer.className = "layer";         badge.className = "badge";       badge.textContent = "N/A";   }
+        layer.classList.remove("match", "nomatch");
+        if      (result === true)  { layer.classList.add("match");   badge.className = "badge green"; badge.textContent = "EQUAL"; }
+        else if (result === false) { layer.classList.add("nomatch"); badge.className = "badge red";   badge.textContent = "DIFF";  }
+        else { layer.classList.add("nomatch"); badge.className = "badge red"; badge.textContent = "N/A"; }
     });
 }
 
@@ -110,18 +111,19 @@ function clearAdvancedSelection() {
     showToast("Selection cleared", "info");
 }
 
+
 function mapResults(raw) {
     raw = raw || {};
     return {
-        complete_identity: raw.COMPLETE_IDENTITY         != null ? raw.COMPLETE_IDENTITY         : null,
-        isotope:           raw.ISOTOPIC_INDEPENDENCE     != null ? raw.ISOTOPIC_INDEPENDENCE     : null,
-        salt:              raw.SALTS_INDEPENDENCE        != null ? raw.SALTS_INDEPENDENCE        : null,
-        charge:            raw.CHARGES_INDEPENDENCE      != null ? raw.CHARGES_INDEPENDENCE      : null,
-        double_bond:       raw.DOUBLE_BONDS_INDEPENDENCE    != null ? raw.DOUBLE_BONDS_INDEPENDENCE    : null,
-        cis_trans:         raw.CIS_TRANS_INDEPENDENCE       != null ? raw.CIS_TRANS_INDEPENDENCE       : null,
-        sn_position:       raw.SN_POSITION_INDEPENDENCE     != null ? raw.SN_POSITION_INDEPENDENCE     : null,
-        chain_position:    raw.CHAIN_POSITION_INDEPENDENCE  != null ? raw.CHAIN_POSITION_INDEPENDENCE  : null,
-        sum_composition:   raw.SUM_COMPOSITION_INDEPENDENCE != null ? raw.SUM_COMPOSITION_INDEPENDENCE : null,
-        tautomer:          raw.TAUTOMER_INDEPENDENCE     != null ? raw.TAUTOMER_INDEPENDENCE     : null,
+        complete_identity: raw.COMPLETE_IDENTITY                          ?? null,
+        isotope:           raw.ISOTOPIC_INDEPENDENCE                      ?? null,
+        salt:              raw.SALTS_INDEPENDENCE                         ?? null,
+        charge:            raw.CHARGES_INDEPENDENCE                       ?? null,
+        double_bond:       raw.DOUBLE_BONDS_INDEPENDENCE                  ?? null,
+        cis_trans:         raw.STEREOCHEMICAL_CIS_TRANS_INDEPENDENCE      ?? null,
+        sn_position:       raw.SN_POSITION_INDEPENDENCE                   ?? null,
+        chain_position:    raw.CHAIN_POSITION_INDEPENDENCE                ?? null,
+        sum_composition:   raw.SUM_COMPOSITION_INDEPENDENCE               ?? null,
+        tautomer:          raw.TAUTOMER_INDEPENDENCE                      ?? null,
     };
 }
