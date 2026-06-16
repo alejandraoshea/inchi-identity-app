@@ -120,7 +120,7 @@ function mapResults(raw) {
         salt:              raw.SALTS_INDEPENDENCE                         ?? null,
         charge:            raw.CHARGES_INDEPENDENCE                       ?? null,
         double_bond:       raw.DOUBLE_BONDS_INDEPENDENCE                  ?? null,
-        cis_trans:         raw.STEREOCHEMICAL_CIS_TRANS_INDEPENDENCE      ?? null,
+        cis_trans:         raw.CIS_TRANS_INDEPENDENCE                      ?? null,
         sn_position:       raw.SN_POSITION_INDEPENDENCE                   ?? null,
         chain_position:    raw.CHAIN_POSITION_INDEPENDENCE                ?? null,
         sum_composition:   raw.SUM_COMPOSITION_INDEPENDENCE               ?? null,
