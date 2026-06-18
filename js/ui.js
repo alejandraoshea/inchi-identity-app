@@ -33,11 +33,14 @@ function initTextareas() {
 }
 
 function markActiveNav() {
-    var FILES_PAGES = ["files.html", "files-pairwise.html", "files-cross.html"];
-    var page = location.pathname.split("/").pop();
+    var FILES_PAGES = ["text_files.html", "mgf_files.html"];
+    var path = location.pathname;
+    var page = path.split("/").pop() || "index.html";
     document.body.classList.toggle("allow-scroll", FILES_PAGES.indexOf(page) !== -1);
     document.querySelectorAll(".nav a, .dropdown-menu a").forEach(function(a) {
-        a.classList.toggle("active", a.getAttribute("href") === page);
+        var href = a.getAttribute("href");
+        var isCompare = href === "/" && (path === "/" || page === "compare.html" || page === "index.html");
+        a.classList.toggle("active", isCompare || href === page || href === path);
     });
 }
 

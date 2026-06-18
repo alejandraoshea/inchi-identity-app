@@ -1,6 +1,7 @@
-var API = (window.API_CONFIG && window.API_CONFIG.baseUrl) 
-    ? window.API_CONFIG.baseUrl + "/api" 
-    : "http://127.0.0.1:5000/api";
+var apiBaseUrl = (window.API_CONFIG && window.API_CONFIG.baseUrl)
+    ? window.API_CONFIG.baseUrl
+    : window.location.origin;
+var API = apiBaseUrl.replace(/\/+$/, "") + "/api";
     
 var layerLabels = {
     complete_identity: "Complete Identity",
